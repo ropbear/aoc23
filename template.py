@@ -4,7 +4,7 @@ import logging
 
 class DXXP1:
     def __init__(self):
-        pass
+        self.log = logging.getLogger(type(self).__name__)
 
     def run(self, lines:list):
         pass
