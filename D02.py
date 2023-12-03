@@ -4,9 +4,9 @@ import logging
 
 colors = ["red","green","blue"]
 
-class D02P1:
+class P1:
     def __init__(self):
-        self.log = logging.getLogger(type(self).__name__)
+        self.log = logging.getLogger(":".join([__file__,type(self).__name__]))
 
     def parse_game(self, line:str) -> dict:
         gamestr, roundstr = line.split(":")
@@ -41,7 +41,7 @@ class D02P1:
         self.log.info(f"ans: {ans}")
         return ans
 
-class D02P2(D02P1):
+class P2(P1):
     def get_power(self, game:dict) -> int:
         least = {"red":float('-inf'), "green":float('-inf'), "blue":float('-inf')}
         for rnd in game['rounds']:
@@ -60,5 +60,5 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     with open(sys.argv[1],"r") as f:
         lines = [l.strip() for l in f.readlines()]
-    D02P1().run(lines)
-    D02P2().run(lines)
+    P1().run(lines)
+    P2().run(lines)
