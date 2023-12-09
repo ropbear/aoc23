@@ -2,7 +2,7 @@ import logging
 import importlib
 
 completed = [
-    "01","02"
+    "01","02","03"
 ]
 
 if __name__ == "__main__":
